@@ -54,6 +54,11 @@ contract Payroll {
     function updateAddrInfo(address e) returns (bool) {
         require(msg.sender == owner);
         
+        if (employee != 0x0) {
+            uint payment = salary * (now - lastPayday) / payDuration;
+            employee.transfer(payment);
+        }
+
         employee = e;
         lastPayday = now;
         return true;
@@ -65,11 +70,10 @@ contract Payroll {
         if (employee != 0x0) {
             uint payment = salary * (now - lastPayday) / payDuration;
             employee.transfer(payment);
-            
-            lastPayday = now;
         }
         
-        salary = s;
+        salary = s * 1 ether;
+        lastPayday = now;
         return true;
     }
 }
