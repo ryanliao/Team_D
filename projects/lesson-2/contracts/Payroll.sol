@@ -1,4 +1,4 @@
-pragma solidity ^0.4.14;
+pragma solidity ^0.4.24;
 pragma experimental ABIEncoderV2;
 
 contract Payroll {
@@ -86,5 +86,11 @@ contract Payroll {
         
         employee.lastPayDay = nextPayDay;
         employee.id.transfer(employee.salary);
+    }
+    
+    function addMoreEmployees(address employeeId, uint salary) private returns (uint) {
+        
+        addEmployee(employeeId, salary * 1 ether);
+        return calculateRunway();
     }
 }
