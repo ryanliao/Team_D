@@ -15,6 +15,45 @@ class Employer extends Component {
     };
   }
 
+  /*
+  addFund = () => {
+    const { payroll, employer, web3} = this.props;
+    payroll.addFund({
+      from: employer,
+      value: web3.toWei(this.fundInput.value)
+    });
+  }
+
+  addEmployee = () => {
+    const { payroll, employer } = this.props;
+    payroll.addEmployee(this.emloyeeInput.value, parseInt(this.salaryInput.value), {
+      from: employer, 
+      gas: 1000000
+    }).then((result) => {
+      alert('success');
+    });
+  }
+
+  updateEmployee = () => {
+    const { payroll, employer } = this.props;
+    payroll.updateEmployee(this.emloyeeInput.value, parseInt(this.salaryInput.value), {
+      from: employer, 
+      gas: 1000000
+    }).then((result) => {
+      alert('success');
+    });
+  }
+
+  removeEmployee = () => {
+    const { payroll, employer } = this.props;
+    payroll.removeEmployee(this.emloyeeInput.value, {
+      from: employer, 
+      gas: 1000000
+    }).then((result) => {
+      alert('success');
+    });
+  }
+  */
   componentDidMount() {
     const { account, payroll } = this.props;
     payroll.owner.call({
@@ -50,6 +89,58 @@ class Employer extends Component {
 
   render() {
     return (
+      /*
+      <div>
+        <h2>Employer</h2>
+        <form className="pure-form pure-form-stacked">
+          <fieldset>
+            <legend>Add fund</legend>
+            <label>fund</label>
+            <input
+              type="text"
+              placeholder="fund"
+              ref={(input) => {this.fundInput = input;}}/>
+
+              <button type="button" className="pure-button" onClick={this.addFund}>Add</button>
+            </fieldset>
+        </form>
+        
+        <form className="pure-form pure-form-stacked">
+          <fieldset>
+            <legend>Add/Upgrade Employee</legend>
+
+            <label>employee id</label>
+            <input
+              type="text"
+              placeholder="employee"
+              ref={(input) => {this.employeeInput = input;}}/>
+
+            <label>salary</label>
+            <input
+              type="text"
+              placeholder="salary"
+              ref={(input) => {this.salaryInput = input;}}/>
+
+              <button type="button" className="pure-button" onClick={this.addEmployee}>Add</button>
+              <button type="button" className="pure-button" onClick={this.updateEmployee}>Update</button>
+            </fieldset>
+        </form>
+
+        <form className="pure-form pure-form-stacked">
+          <fieldset>
+            <legend>Remove Employee</legend>
+            <label>employee id</label>
+            <input
+              type="text"
+              placeholder="employee"
+              ref={(input) => {this.removeEmployeeInput = input;}}/>
+
+              <button type="button" className="pure-button" onClick={this.removeEmployee}>Remove</button>
+            </fieldset>
+        </form>
+      </div>
+      */
+
       <Layout style={{ padding: '24px 0', background: '#fff'}}>
         <Sider width={200} style={{ background: '#fff' }}>
           <Menu
